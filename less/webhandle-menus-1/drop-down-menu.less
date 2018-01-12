@@ -1,68 +1,69 @@
 // drop down menu basics
-display: block;
-margin: 15px 0 0 0;
-padding: 0;
-list-style: none;
+.webhandle-menus-1-drop-down {
+	display: block;
+	margin: 15px 0 0 0;
+	padding: 0;
+	list-style: none;
 
-li {
-	position: relative;
-	display: inline-block;
-	padding: 0 15px 10px 15px;
-	
-	&:after {
-		content: '';
+	li {
+		position: relative;
 		display: inline-block;
-		position: absolute;
-		bottom: -6px;
-		left: 0;
-		right: 0;
-		height: 4px;
-		background-color: fade(white, 0);
-		.transition(background-color .3s, bottom .3s);
-	}
-	
-	a {
-		color: @menu-text-color;
-		text-decoration: none;
-	}
-	
-	// &:last-child {
-	// 	margin-right: -15px;
-	// }
-	
-	&.current:after, &:hover:after {
-		background-color: @menu-underline-color;
-		bottom: 0;
-	}
-	
-	& > ul {
-		z-index: -1;
-		opacity: 0;
-		.transition(opacity .3s);
-		position: absolute;
-		text-align: left;
-		left: 0;
-		padding: 5px 0px;
-		margin: 0;
-		margin-top: 10px;
+		padding: 0 15px 10px 15px;
 		
-		li {
-			display: block;
-			padding: 5px 15px 5px 15px;
-			background-color: @menu-dropdown-background;
+		&:after {
+			content: '';
+			display: inline-block;
+			position: absolute;
+			bottom: -6px;
+			left: 0;
+			right: 0;
+			height: 4px;
+			background-color: fade(white, 0);
+			.transition(background-color .3s, bottom .3s);
 		}
 		
 		a {
-			white-space: nowrap;
+			color: @menu-text-color;
+			text-decoration: none;
+		}
+		
+		// &:last-child {
+		// 	margin-right: -15px;
+		// }
+		
+		&.current:after, &:hover:after {
+			background-color: @menu-underline-color;
+			bottom: 0;
+		}
+		
+		& > ul {
+			position: absolute;
+			opacity: 0;
+			left: -20000px;
+			.transition(opacity .3s);
+			text-align: left;
+			padding: 5px 0px;
+			margin: 0;
+			margin-top: 10px;
+			
+			li {
+				display: block;
+				padding: 5px 15px 5px 15px;
+				background-color: @menu-dropdown-background;
+			}
+			
+			a {
+				white-space: nowrap;
+			}
+		}
+		
+		&:hover > ul {
+			z-index: 100;
+			opacity: 1;
+			left: 0;
 		}
 	}
-	
-	&:hover > ul {
-		z-index: 100;
-		opacity: 1;
-	}
 }
-
 
 
 
