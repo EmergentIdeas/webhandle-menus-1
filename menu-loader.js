@@ -1,45 +1,26 @@
-let path = require('path');
-const fs = require('fs')
 const Sink = require('file-sink')
-
 let log = require('filter-log')('webhandle:menu-loader')
+const loadMenu = require('./load-menu')
+
 
 const menuLoaderCreator = function(menuPath) {
 	const sink = new Sink(menuPath)
-	let menuLoader = function(req, res, next) {
+	
+	let menuLoader = async function(req, res, next) {
 		let menuName = res.locals.page.menuName || 'main'
-		sink.read(menuName + '.json', function(err, data) {
-			log.debug('load menu: ' + menuName)
-			if(!err) {
-				try {
-					let items = JSON.parse(data.toString())
-					let top
-					let all = {}
-					
-					items.forEach((item) => {
-						if(typeof item.parentId == 'undefined') {
-							top = item
-						}
-						item.children = item.children || []
-						all[item.id] = item
-					})
-					items.forEach((item) => {
-						if(typeof item.parentId != 'undefined' && all[item.parentId]) {
-							all[item.parentId].children.push(item)
-						}
-					})					
-					
-					res.locals.menu = top
-					res.locals.menuItems = items
-				}
-				catch(e) {
-					log.error('Could not parse menu: ' + menuName)
-				}
+		let [top, items] = await loadMenu(sink, menuName)
+		res.locals.menu = top
+		res.locals.menuItems = items
+		
+		if(res.locals.page.menuNames) {
+			res.locals.menus = {}
+			for(let name of res.locals.page.menuNames) {
+				let [top, items] = await loadMenu(sink, name)
+				res.locals.menus[name] = top
 			}
-			
-			res.locals.menu = res.locals.menu || {}
-			return next()
-		})
+		}
+		
+		next()
 	}
 	
 	return menuLoader

@@ -1,6 +1,6 @@
 {
   "name": "webhandle-menus-1",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A set of tools for rendering menus for static sites",
   "main": "menu-loader.js",
   "scripts": {
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/EmergentIdeas/webhandle-menus-1#readme",
   "dependencies": {
-    "file-sink": "^1.0.1",
-    "filter-log": "0.0.3"
+    "file-sink": "^1.0.9",
+    "filter-log": "^1.0.3"
   }
 }
