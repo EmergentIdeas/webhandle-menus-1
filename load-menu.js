@@ -11,7 +11,7 @@ async function loadMenu(sink, name) {
 		return [top, items]
 	}
 	catch(e) {
-		log.error({msg: `Could not load menu: ${menuName}`, error: e})
+		log.error({msg: `Could not load menu: ${name}`, error: e})
 	}
 	return [{}, []]
 }
