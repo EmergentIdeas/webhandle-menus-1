@@ -1,6 +1,6 @@
 {
   "name": "webhandle-menus-1",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A set of tools for rendering menus for static sites",
   "main": "menu-loader.js",
   "scripts": {

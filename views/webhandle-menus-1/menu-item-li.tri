@@ -1,1 +1,1 @@
-<li class="__customClasses__" data-id="__id__"><a href="__url__">__label__</a></li>
+<li class="__customClasses__" data-id="__id__"><a __url??'href="' + url + '"'__>__label__</a></li>
