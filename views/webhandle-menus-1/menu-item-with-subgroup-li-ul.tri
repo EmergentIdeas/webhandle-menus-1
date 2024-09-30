@@ -1,3 +1,3 @@
-<li class="__customClasses__ __children.length > 0??'has-children'__" data-id="__id__"><a __url??'href="' + url + '"'__>__label__</a>
-	__children.length > 0??this::webhandle-menus-1/submenu__
+<li class="__customClasses__ __children.length > 0??'has-children'__" data-id="__id__" __Object.entries(elementAttributes)::./element-attribute__><a __url??'href="' + url + '"'__>__label__</a>
+    __children.length > 0??this::webhandle-menus-1/submenu__
 </li>

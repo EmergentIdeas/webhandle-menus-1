@@ -5,6 +5,9 @@
  * {
  *    "id": 2,
  *    "parentId": 0,
+ *    "elementAttributes": {
+ * 			"data-color": "blue"
+ * 	  }
  * } 
  * @param {Array(object)} items 
  * @returns The root element of the constructed tree. Root element is determined
