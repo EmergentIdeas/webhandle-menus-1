@@ -1,1 +1,1 @@
-<li class="__customClasses__" data-id="__id__"><a __url??'href="' + url + '"'__>__label__</a></li>
+<li class="__customClasses__" data-id="__id__" __Object.entries(elementAttributes)::./element-attribute__><a __url??'href="' + url + '"'__>__label__</a></li>
